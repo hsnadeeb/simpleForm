@@ -374,7 +374,7 @@
 //   }
 // }
 
-
+localStorage.clear();
 
 const form = document.getElementById('my-form');
 const nameInput = document.getElementById('name');
@@ -382,6 +382,9 @@ const emailInput = document.getElementById('email');
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
-
-  localStorage.setItem(nameInput.value,emailInput.value);
+  const user = {
+    name: nameInput.value,
+    email: emailInput.value
+  };
+  localStorage.setItem("user", JSON.stringify(user));
 });
